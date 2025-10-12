@@ -163,10 +163,16 @@
 
 .main-slider .content .big-title h2 {
     color: #ffffff;
-    font-size: 80px;
+    font-size: 48px;
     line-height: 0.9em;
     font-weight: 700;
-    text-transform: capitalize;
+    padding-bottom: 12px;
+}
+
+.main-slider .content .big-title h3 {
+    color: var(--thm-base);
+    font-size: 20px;
+    font-weight: 500;
 }
 
 .main-slider .content .big-title h2 .dotted {
