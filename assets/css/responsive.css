@@ -535,13 +535,9 @@
 /* Mobile Layout: 320px. */
 @media only screen and (max-width: 767px) {
 
-    .main-header .nav-outer .main-menu,
-    .sticky-header {
-        display: none !important;
-    }
-
-    .nav-outer .mobile-nav-toggler {
-        display: block;
+    .sec-title h2 {
+        font-size: 35px;
+        margin: 7px 0 0;
     }
 
     .sec-title h2 br {
@@ -1217,11 +1213,11 @@
 
     .main-header .nav-outer .main-menu,
     .sticky-header {
-        /* display: none !important; */
+        display: none !important;
     }
 
     .nav-outer .mobile-nav-toggler {
-        /* display: block; */
+        display: block;
     }
 
     .mobile-nav-toggler .icon-bar {
@@ -1555,6 +1551,10 @@
 
     .sec-title h2 br {
         display: none;
+    }
+
+    .invester-portal-link {
+        display: block !important;
     }
 }
 

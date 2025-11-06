@@ -1910,6 +1910,24 @@ select:focus {
     text-transform: capitalize;
 }
 
+.mobile-menu .navigation li>a img {
+    filter: invert(100%) sepia(100%) saturate(0%) hue-rotate(288deg) brightness(102%) contrast(102%);
+    height: 24px;
+    width: 24px;
+    transition: all 200ms linear;
+    transition-delay: 0.1s;
+}
+
+.mobile-menu .navigation li>a:hover img {
+    filter: invert(52%) sepia(95%) saturate(1219%) hue-rotate(185deg) brightness(100%) contrast(103%);
+}
+
+/* hide invester portal link on mobile menu */
+.mobile-menu .navigation.invester-portal-link {
+        display: none;
+    }
+
+
 .mobile-menu .navigation li.dropdown .dropdown-btn {
     position: absolute;
     top: 6px;
@@ -2658,6 +2676,7 @@ select:focus {
     display: block;
     padding: 188px 0 200px;
     z-index: 10;
+    height: 600px;
 }
 
 .slogan-area__bg {

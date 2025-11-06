@@ -44,6 +44,7 @@
     background-blend-mode: luminosity;
     transition: transform 7000ms ease, opacity 1500ms ease-in;
     z-index: 1;
+    /* background-image: url(.../images/resources/hero-bg3.png); */
 }
 
 .main-slider .slide .image-layer:before {
@@ -435,4 +436,41 @@
 .main-slider.style2 .content .big-title h2 {
     font-size: 110px;
     line-height: 1.0em;
+}
+
+
+.about-style2-area.bg-image {
+    background-attachment: scroll;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    background-color: var(--thm-bg);
+    background-blend-mode: luminosity;
+}
+
+.about-style2-area.bg-image:before {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    content: "";
+    background-color: var(--thm-bg);
+    opacity: 0.60;
+    z-index: -1;
+}
+
+.about-style2-area.bg-image h3{
+    color: #bfd2e0 !important;
+
+}
+
+.about-style2-area.bg-image h2{
+    color: white !important;
+
+}
+
+.about-style2-area.bg-image li{
+    color: white !important;
+
 }

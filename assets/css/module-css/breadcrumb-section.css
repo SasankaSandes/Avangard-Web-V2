@@ -78,6 +78,12 @@
 }
 
 
+.breadcrumb-area .title h3 {
+    color: #81a5ca;
+    font-weight: 500;
+}
+
+
 .breadcrumb-menu {
     position: relative;
     display: block;

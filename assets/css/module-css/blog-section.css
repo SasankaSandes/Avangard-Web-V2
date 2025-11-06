@@ -846,6 +846,7 @@
 
 .blog-details-author .inner-box .text p {
     margin: 0;
+    color: var(--thm-black);
 }
 
 

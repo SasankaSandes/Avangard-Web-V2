@@ -189,7 +189,7 @@
     align-items: center;
     padding: 42px 0px 43px;
     color: #ffffff;
-    font-size: 14px;
+    font-size: 16px;
     line-height: 20px;
     font-weight: 500;
     transition: all 500ms ease;
@@ -733,7 +733,9 @@
 
 .phone-number-box1 .phone a {
     position: relative;
-    display: inline-block;
+    display: inline-flex;
+    gap: 8px;
+    align-items: center;
     color: #ffffff;
     font-size: 18px;
     line-height: 20px;
@@ -746,6 +748,17 @@
     color: var(--thm-base);
 }
 
+.phone-number-box1 .phone a img {
+    filter: invert(100%) sepia(100%) saturate(0%) hue-rotate(288deg) brightness(102%) contrast(102%);
+    height: 24px;
+    width: 24px;
+    transition: all 200ms linear;
+    transition-delay: 0.1s;
+}
+
+.phone-number-box1 .phone a:hover img {
+    filter: invert(52%) sepia(95%) saturate(1219%) hue-rotate(185deg) brightness(100%) contrast(103%);
+}
 
 
 /*==============================================
