@@ -4,8 +4,8 @@
 =============================================
 ***/
 .bottom-parallax {
-    position: relative;
-    height: 595px;
+    /* position: relative; */
+    /* height: 595px; */
     opacity: 0;
     z-index: -999;
 }
@@ -15,7 +15,7 @@
     left: 0px;
     bottom: 0px;
     right: 0px;
-    height: 595px;
+    /* height: 595px; */
 }
 
 .parallax-visible .bottom-parallax {
@@ -346,15 +346,16 @@
 
 .footer-bottom .bottom-inner .copyright p {
     color: #80868d;
-    font-size: 16px;
-    font-weight: 500;
+    font-size: 13px;
+    font-weight: 300;
     font-family: var(--thm-font);
     margin: 0;
 }
 
 .footer-bottom .bottom-inner .copyright p a {
-    color: #ffffff;
-    font-weight: 700;
+    color: var(--thm-base);
+    font-weight: 300;
+    text-decoration: underline;
     transition: all 500ms ease;
 }
 

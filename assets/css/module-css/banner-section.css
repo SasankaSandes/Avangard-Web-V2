@@ -439,7 +439,7 @@
 }
 
 
-.about-style2-area.bg-image {
+.about-style2-area.team-bg-image {
     background-attachment: scroll;
     background-repeat: no-repeat;
     background-position: center center;
@@ -448,7 +448,7 @@
     background-blend-mode: luminosity;
 }
 
-.about-style2-area.bg-image:before {
+.about-style2-area.team-bg-image:before {
     position: absolute;
     top: 0;
     left: 0;
@@ -460,17 +460,17 @@
     z-index: -1;
 }
 
-.about-style2-area.bg-image h3{
+.about-style2-area.team-bg-image h3{
     color: #bfd2e0 !important;
 
 }
 
-.about-style2-area.bg-image h2{
+.about-style2-area.team-bg-image h2{
     color: white !important;
 
 }
 
-.about-style2-area.bg-image li{
+.about-style2-area.team-bg-image li{
     color: white !important;
 
 }

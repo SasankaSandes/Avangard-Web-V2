@@ -1509,6 +1509,10 @@
         order: 1;
     }
 
+    .team-bg-image {
+        background-position: 75% 0% !important;
+    }
+
 
 }
 
@@ -1556,6 +1560,7 @@
     .invester-portal-link {
         display: block !important;
     }
+
 }
 
 
@@ -1645,6 +1650,10 @@
         padding: 64px 0 0 0;
     }
 
+    .about-style2-area.team-bg-image {
+        padding: 64px 0;
+    }
+
     .company-benefits-area {
         padding: 64px 0 0 0;
     }
@@ -1659,5 +1668,13 @@
 
     .footer {
         padding-top: 64px;
+    }
+
+    .chart-wrapper1 {
+        height: 200px;
+    }
+
+    .performance-style2-area table {
+        font-size: 14px;
     }
 }

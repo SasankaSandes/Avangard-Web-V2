@@ -37,23 +37,23 @@
     <link rel="stylesheet" href="assets/css/swiper.min.css">
 
     <!-- Module css -->
-    <link rel="stylesheet" href="assets/css/module-css/header-section.css?v=2.1">
-    <link rel="stylesheet" href="assets/css/module-css/banner-section.css?v=2.1">
-    <link rel="stylesheet" href="assets/css/module-css/about-section.css?v=2.1">
-    <link rel="stylesheet" href="assets/css/module-css/blog-section.css?v=2.1">
-    <link rel="stylesheet" href="assets/css/module-css/fact-counter-section.css?v=2.1">
-    <link rel="stylesheet" href="assets/css/module-css/faq-section.css?v=2.1">
-    <link rel="stylesheet" href="assets/css/module-css/contact-page.css?v=2.1">
-    <link rel="stylesheet" href="assets/css/module-css/breadcrumb-section.css?v=2.1">
-    <link rel="stylesheet" href="assets/css/module-css/team-section.css?v=2.1">
-    <link rel="stylesheet" href="assets/css/module-css/partner-section.css?v=2.1">
-    <link rel="stylesheet" href="assets/css/module-css/testimonial-section.css?v=2.1">
-    <link rel="stylesheet" href="assets/css/module-css/services-section.css?v=2.1">
-    <link rel="stylesheet" href="assets/css/module-css/footer-section.css">
+    <link rel="stylesheet" href="assets/css/module-css/header-section.css?v=2.21">
+    <link rel="stylesheet" href="assets/css/module-css/banner-section.css?v=2.21">
+    <link rel="stylesheet" href="assets/css/module-css/about-section.css?v=2.21">
+    <link rel="stylesheet" href="assets/css/module-css/blog-section.css?v=2.21">
+    <link rel="stylesheet" href="assets/css/module-css/fact-counter-section.css?v=2.21">
+    <link rel="stylesheet" href="assets/css/module-css/faq-section.css?v=2.21">
+    <link rel="stylesheet" href="assets/css/module-css/contact-page.css?v=2.21">
+    <link rel="stylesheet" href="assets/css/module-css/breadcrumb-section.css?v=2.21">
+    <link rel="stylesheet" href="assets/css/module-css/team-section.css?v=2.21">
+    <link rel="stylesheet" href="assets/css/module-css/partner-section.css?v=2.21">
+    <link rel="stylesheet" href="assets/css/module-css/testimonial-section.css?v=2.21">
+    <link rel="stylesheet" href="assets/css/module-css/services-section.css?v=2.21">
+    <link rel="stylesheet" href="assets/css/module-css/footer-section.css?v=2.21">
 
     <link href="assets/css/color/theme-color.css" id="jssDefault" rel="stylesheet">
-    <link rel="stylesheet" href="assets/css/style.css?v=2.1">
-    <link rel="stylesheet" href="assets/css/responsive.css?v=2.1">
+    <link rel="stylesheet" href="assets/css/style.css?v=2.21">
+    <link rel="stylesheet" href="assets/css/responsive.css?v=2.21">
     <!-- Favicon -->
     <link rel="apple-touch-icon" sizes="180x180" href="assets/images/favicon/apple-touch-icon.png">
     <link rel="icon" type="image/png" href="assets/images/favicon/favicon-32x32.png" sizes="32x32">
@@ -89,6 +89,36 @@ AI-driven portfolio management.">
     <![endif]-->
 
 </head>
+
+<!-- disclaimer popup control -->
+
+<script>
+  // Check if disclaimer was accepted in THIS TAB
+  function hasAcceptedDisclaimer() {
+    return sessionStorage.getItem("av_disclaimer_accepted") === "true";
+  }
+
+  document.addEventListener('DOMContentLoaded', function () {
+    var popup = document.getElementById('disclaimer-popup');
+    var acceptBtn = document.getElementById('disclaimer-accept-btn');
+
+    if (!popup || !acceptBtn) return;
+
+    // Show or hide pop-up
+    if (hasAcceptedDisclaimer()) {
+      popup.classList.remove('popup-visible');
+    } else {
+      popup.classList.add('popup-visible');
+    }
+
+    // When user clicks accept
+    acceptBtn.addEventListener('click', function () {
+      // Save acceptance for THIS TAB ONLY
+      sessionStorage.setItem("av_disclaimer_accepted", "false");
+      popup.classList.remove('popup-visible');
+    });
+  });
+</script>
 
 
 <body class="stop-scrolling">
@@ -754,7 +784,7 @@ AI-driven portfolio management.">
 
         <!--Start slogan area-->
         <section id="team" class="slogan-area">
-            <div class="slogan-area__bg"
+            <div class="slogan-area__bg team-bg-image"
                 style="background-image: url(assets/images/parallax-background/slogan-area-bg.jpg);"></div>
             <div class="container">
                 <div class="row">
@@ -1008,13 +1038,31 @@ AI-driven portfolio management.">
                 <div class="footer-bottom">
                     <div class="container">
                         <div class="bottom-inner">
-                            <div class="footer-logo-style1">
+                            <!-- <div class="footer-logo-style1">
                                 <a href="index.html">
                                     <img src="assets/images/resources/logo.png" alt="Awesome Logo" title="" width="140">
                                 </a>
-                            </div>
+                            </div> -->
                             <div class="copyright">
-                                <p>© 2024 Avangard Capital Pty Ltd. All Rights Reserved.</p>
+                                <p>© 2024 Avangard Capital Pty Ltd. All Rights Reserved. See our <a target="_blank"
+                                                href="assets/downloads/privacy policy.pdf">privacy policy</a><br><br>
+                                <p>The information in this website (the Information) has been prepared by Avangard Pty
+                                    Ltd.<br><br>
+                                    This information is for general information only and is not an offer for the
+                                    purchase or sale of any financial product or services. The Information has been
+                                    prepared for investors who qualify as wholesale clients under section 761G of the
+                                    Corporations Act 2001 (Cth) (Corporations Act), or to any other person who is not
+                                    required to be given a regulated disclosure document under the Corporations Act. The
+                                    Information is not intended to provide you with financial or tax advice and does not
+                                    take into account your objectives, financial situation or needs. Although we believe
+                                    that the Information is correct, no warranty of accuracy, reliability, or
+                                    completeness is given, except for liability under statute which cannot be excluded.
+                                    Please note that past performance may not be indicative of future performance and
+                                    that no guarantee of performance, the return of capital or a particular rate of
+                                    return is given by Banxly Investment Group Pty Ltd, Avangard Pty Ltd, or any other
+                                    person. To the maximum extent possible, Banxly Investment Group Pty Ltd, Avangard
+                                    Pty Ltd, or any other person do not accept any liability for any statement in this
+                                    Information.</p>
                             </div>
 
                         </div>
@@ -1031,37 +1079,35 @@ AI-driven portfolio management.">
         </button>
 
         <!--popup -->
-        <div id="search-popup" class="search-popup">
-            <div class="close-search"><i class="icon-close"></i></div>
+        <div id="disclaimer-popup" class="disclaimer-popup">
             <div class="popup-inner">
                 <div class="overlay-layer"></div>
                 <div class="search-form">
-                    <h3 style="display: block;">Disclaimer Important Information!</h3>
-                    <p style="font-size: 16px; line-height: normal; color: #b0bec4;">The information contained in this
-                        website is given by Avangard Capital (ABN 71 676 999 456). Avangard Capital is a Corporate
-                        Authorised Representative [CAR 001312603] of BANXLY (ACN 652 385 807 - AFSL 538864). The
-                        material has been prepared for general use only and does not take into account your personal
-                        investment objectives, financial situation or particular needs.<br><br>
-                        The information provided by Avangard Capital has been done so in good faith and has been derived
-                        from sources believed to be accurate at the time of compilation. While every care has been taken
-                        in preparing this information, except as required by law, Avangard Capital makes no
-                        representation or warranty as to the accuracy or completeness of the information provided in
-                        this document or takes any responsibility for any loss or damage suffered because of any
-                        omission, inadequacy or inaccuracy. Changes in circumstances after the date of publication may
-                        impact on the accuracy of the information.<br><br>
-                        Avangard Capital accepts no responsibility for investment decisions or any other actions taken
-                        by any person on the basis of the information included. Past performance is not a reliable
-                        indicator of future performance. Avangard Capital does not guarantee the performance of any
-                        Fund, the repayment of capital or any particular rate of return. The performance of any Fund
-                        depends on the performance of its underlying investments which can fall as well as rise and can
-                        result in both capital losses and gains.<br><br>
-                        In viewing this website, you agree to be bound by the limitations, terms and conditions set out
-                        in this disclaimer.</p>
-
+                    <h3 style="display: block;">Disclaimer!</h3>
+                    <p style="font-size: 16px; line-height: normal; color: #808d9d;">Information provided on this
+                        website and issued by
+                        Avangard Pty Ltd (ABN 67 699 945 699) as Corporate Authorised Representative of Banxly
+                        Investment Group Pty Ltd (ACN 652 385 807, AFSL 538864) (“Avangard”) is intended for persons in
+                        Australia who are ‘wholesale clients’ within the meaning of section 761G of the Corporations Act
+                        2001 (Cth). This includes financial advisers and institutional investors.<br><br>
+                        If you are an investor in the Avangard Alpha Fund, the information made available on this
+                        website about the Fund is issued by Banxly Investment Group Pty Ltd (ACN 652 385 807, AFSL
+                        538864) (“Banxly”). Banxly is the trustee and issuer of units in the Fund.<br><br>
+                        The information provided on this website is of a general nature only and has been prepared
+                        without taking into account your objectives, financial situations or needs. Before making an
+                        investment decision in respect of the Fund, you should consider the current Information
+                        Memorandum and other materials published by Avangard or Banxly. You should consult your
+                        professional financial, legal, and tax advisers in relation to any investment in the
+                        Fund.<br><br>
+                        By clicking ‘I Accept’, you confirm you accept all the Terms of Use of this website.
+                        <br><br>Read full disclaimer: <a
+                            href="disclaimer.html">avangardcapital.com.au/disclaimer.html</a><br><br>
+                    </p>
+                    <a class="btn-one" href="#" id="disclaimer-accept-btn"><span class="txt">I accept</span></a>
                 </div>
             </div>
         </div>
-        <!-- search-popup end -->
+        <!-- disclaimer-popup end -->
     </div>
 
 
@@ -1097,12 +1143,8 @@ AI-driven portfolio management.">
     <!-- <script async defer
         src="https://maps.googleapis.com/maps/api/js?key=AIzaSyATY4Rxc8jNvDpsK8ZetC7JyN4PFVYGCGM&callback=initMap">
         </script> -->
-
     <!-- thm custom script -->
     <script src="assets/js/custom.js"></script>
 
-
-
 </body>
-
 </html>
