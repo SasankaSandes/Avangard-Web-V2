@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://avangardcapital.com.au/sitemap.xml
