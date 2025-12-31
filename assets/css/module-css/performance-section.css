@@ -586,7 +586,7 @@
     color: #81a5ca;
 }
 
-.performance-style2__content .inner-content p.fine-print{
+.performance-style2__content .inner-content figcaption.fine-print{
     color: #677788;
     font-size: 14px;
     font-weight: 100;
