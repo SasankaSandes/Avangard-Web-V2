@@ -162,7 +162,7 @@
     transition-delay: 1000ms;
 }
 
-.main-slider .content .big-title h2 {
+.main-slider .content .big-title h1 {
     color: #ffffff;
     font-size: 48px;
     line-height: 0.9em;
@@ -170,13 +170,13 @@
     padding-bottom: 12px;
 }
 
-.main-slider .content .big-title h3 {
+.main-slider .content .big-title h2 {
     color: var(--thm-base);
     font-size: 20px;
     font-weight: 500;
 }
 
-.main-slider .content .big-title h2 .dotted {
+.main-slider .content .big-title h1 .dotted {
     position: relative;
     display: inline-block;
     width: 18px;
@@ -185,7 +185,7 @@
     border-radius: 50%;
 }
 
-.main-slider .content .big-title h2 span {
+.main-slider .content .big-title h1 span {
     color: var(--thm-base);
 }
 
