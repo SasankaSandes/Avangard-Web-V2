@@ -6,7 +6,8 @@
     <!-- avangardcapital.com.au-->
     <meta charset="UTF-8">
     <title>Avangard - Harnessing AI, Generating Alpha!</title>
-    <meta name="description" content="Avangard Capital is an AI-led, technology-driven investment fund for Australian wholesale investors—focusing on quantitative strategies and reliable, long-term returns.">
+    <meta name="description"
+        content="Avangard Capital is an AI-led, technology-driven investment fund for Australian wholesale investors—focusing on quantitative strategies and reliable, long-term returns.">
 
     <!-- responsive meta -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -144,31 +145,39 @@ AI-driven portfolio management.">
 <!-- disclaimer popup control -->
 
 <script>
-  // Check if disclaimer was accepted in THIS TAB
-  function hasAcceptedDisclaimer() {
-    return sessionStorage.getItem("av_disclaimer_accepted") === "true";
-  }
-
-  document.addEventListener('DOMContentLoaded', function () {
-    var popup = document.getElementById('disclaimer-popup');
-    var acceptBtn = document.getElementById('disclaimer-accept-btn');
-
-    if (!popup || !acceptBtn) return;
-
-    // Show or hide pop-up
-    if (hasAcceptedDisclaimer()) {
-      popup.classList.remove('popup-visible');
-    } else {
-      popup.classList.add('popup-visible');
+    // Check if disclaimer was accepted in THIS TAB
+    function hasAcceptedDisclaimer() {
+        return sessionStorage.getItem("av_disclaimer_accepted") === "true";
     }
 
-    // When user clicks accept
-    acceptBtn.addEventListener('click', function () {
-      // Save acceptance for THIS TAB ONLY
-      sessionStorage.setItem("av_disclaimer_accepted", "false");
-      popup.classList.remove('popup-visible');
+    document.addEventListener('DOMContentLoaded', function () {
+
+        if (window.location.href.endsWith("index.html")) {
+            console.log(true)
+            var popup = document.getElementById('disclaimer-popup');
+            var acceptBtn = document.getElementById('disclaimer-accept-btn');
+
+
+            if (!popup || !acceptBtn) return;
+
+            // Show or hide pop-up
+            if (hasAcceptedDisclaimer()) {
+                popup.classList.remove('popup-visible');
+            } else {
+                popup.classList.add('popup-visible');
+            }
+
+            // When user clicks accept
+            acceptBtn.addEventListener('click', function () {
+                // Save acceptance for THIS TAB ONLY
+                sessionStorage.setItem("av_disclaimer_accepted", "false");
+                popup.classList.remove('popup-visible');
+            });
+        } else {
+            console.log(false)
+        }
+
     });
-  });
 </script>
 
 
@@ -270,7 +279,8 @@ AI-driven portfolio management.">
                         <div class="header-left">
                             <div class="main-logo-box">
                                 <a href="index.html">
-                                    <img src="assets/images/resources/logo.png" alt="Avangard Capital logo" title="" width="140">
+                                    <img src="assets/images/resources/logo.png" alt="Avangard Capital logo" title=""
+                                        width="140">
                                 </a>
                             </div>
 
@@ -288,11 +298,11 @@ AI-driven portfolio management.">
                                 <nav class="main-menu style1 navbar-expand-md navbar-light">
                                     <div class="collapse navbar-collapse show clearfix" id="navbarSupportedContent">
                                         <ul class="navigation clearfix scroll-nav">
-                                            <li><a href="#banner">Home</a></li>
+                                            <li><a href="index.html">Home</a></li>
                                             <li><a href="#why-invest-with-us">Why Invest With Us</a></li>
                                             <li><a href="team.html">Team</a></li>
                                             <li><a href="performance.html">Performance</a></li>
-                                            <li><a href="#contact">Contact Us</a></li>
+                                            <li><a href="#contact-us">Contact Us</a></li>
                                         </ul>
                                     </div>
                                 </nav>
@@ -334,7 +344,8 @@ AI-driven portfolio management.">
                         <!--Logo-->
                         <div class="logo float-left">
                             <a href="index.html" class="img-responsive">
-                                <img src="assets/images/resources/sticky-logo.png" alt="Avangard Capital logo" title="" width="140">
+                                <img src="assets/images/resources/sticky-logo.png" alt="Avangard Capital logo" title=""
+                                    width="140">
                             </a>
                         </div>
                         <!--Right Col-->
@@ -450,7 +461,8 @@ AI-driven portfolio management.">
                                 <!-- <video width="100%" onloadstart="this.playbackRate = 0.5;" autoplay muted loop id="myVideo">
                                     <source src="assets/videos/ai-robot.mp4" type="video/mp4">
                                 </video> -->
-                                <img src="assets/images/resources/robot.png" alt="AI and machine learning concept illustration" title="" width="100%">
+                                <img src="assets/images/resources/robot.png"
+                                    alt="AI and machine learning concept illustration" title="" width="100%">
                             </div>
                             <div class="shape-1"></div>
                         </div>
@@ -607,8 +619,10 @@ AI-driven portfolio management.">
                             <div class="shape-2"></div>
                             <div class="border-box float-bob-y"></div>
                             <div class="inner">
-                                <img width="100%" src="assets/videos/Avangard-vs-others.gif" alt="Avangard portfolio performance vs top ASX stocks and ETFs">
-                                <img class="legend" src="assets/videos/Avangard-vs-others-legend.gif" alt="Legend for Avangard vs others performance chart" >
+                                <img width="100%" src="assets/videos/Avangard-vs-others.gif"
+                                    alt="Avangard portfolio performance vs top ASX stocks and ETFs">
+                                <img class="legend" src="assets/videos/Avangard-vs-others-legend.gif"
+                                    alt="Legend for Avangard vs others performance chart">
                                 <div class="overlay-content">
 
                                     <h3><span>Avangard Portfolio</span> vs. Top Performing Stocks/ETFs</h3>
@@ -987,7 +1001,8 @@ AI-driven portfolio management.">
                                     <ul class="clearfix">
                                         <li>
                                             <a href="https://www.linkedin.com/company/avangard-capital"><img
-                                                    src="assets/images/icon/linkedin.svg" width="24px" alt="Avangard Linkedin"></a>
+                                                    src="assets/images/icon/linkedin.svg" width="24px"
+                                                    alt="Avangard Linkedin"></a>
                                         </li>
                                     </ul>
                                 </div>
@@ -1036,7 +1051,8 @@ AI-driven portfolio management.">
                                                 <li>
                                                     <a target="_blank"
                                                         href="https://www.linkedin.com/company/avangard-capital"><img
-                                                            src="assets/images/icon/linkedin-light.svg" alt="Avangard Linkedin"></a>
+                                                            src="assets/images/icon/linkedin-light.svg"
+                                                            alt="Avangard Linkedin"></a>
                                                 </li>
                                             </ul>
                                         </div>
@@ -1096,7 +1112,7 @@ AI-driven portfolio management.">
                             </div> -->
                             <div class="copyright">
                                 <p>© 2024 Avangard Capital Pty Ltd. All Rights Reserved. See our <a target="_blank"
-                                                href="assets/downloads/privacy policy.pdf">privacy policy</a><br><br>
+                                        href="assets/downloads/privacy policy.pdf">privacy policy</a><br><br>
                                 <p>The information in this website (the Information) has been prepared by Avangard Pty
                                     Ltd.<br><br>
                                     This information is for general information only and is not an offer for the
@@ -1198,4 +1214,5 @@ AI-driven portfolio management.">
     <script src="assets/js/custom.js"></script>
 
 </body>
+
 </html>
