@@ -152,8 +152,9 @@ AI-driven portfolio management.">
 
     document.addEventListener('DOMContentLoaded', function () {
 
-        console.log("path name is: " + window.location.href + " end of path name")
-        if (window.location.href.endsWith("index.html")) {
+        console.log("href is: " + window.location.href + " end of href name")
+        console.log("path is: " + window.location.pathname + " end of path name")
+        if (window.location.href.endsWith("index.html") || window.location.href.endsWith("/")) {
             console.log(true)
             var popup = document.getElementById('disclaimer-popup');
             var acceptBtn = document.getElementById('disclaimer-accept-btn');
