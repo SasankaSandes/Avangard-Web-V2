@@ -1,0 +1,13 @@
+# llms.txt for avangardcapital.com.au
+# Guidance for AI systems and crawlers
+
+User-agent: *
+Allow: /
+
+# Preferred canonical domain
+Canonical: https://avangardcapital.com.au/
+
+# Key pages
+Home: https://avangardcapital.com.au/
+Performance: https://avangardcapital.au/performance.html
+Team: https://avangardcapital.au/team.html
