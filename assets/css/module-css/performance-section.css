@@ -601,3 +601,9 @@
         padding: 16px;
     }
 }
+
+.table-caption {
+    color: #677789;
+    font-size: 14px;
+    font-weight: 100;
+}
