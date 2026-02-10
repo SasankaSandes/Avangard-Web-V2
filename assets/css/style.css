@@ -2988,10 +2988,15 @@ select:focus {
     margin: 0;
 }
 
+.company-benefits-content h3{
+    color: var(--thm-base);
+}
+
 .company-benefits-content ul {
     position: relative;
     display: block;
     padding-bottom: 54px;
+    padding-left: 28px;
 }
 
 .company-benefits-content ul li {

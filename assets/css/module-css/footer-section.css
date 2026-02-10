@@ -40,6 +40,39 @@
     z-index: 9;
 }
 
+/* Style for footer partner logos */
+.footer-partner-logos {
+    display: flex;
+    align-items: center;
+    justify-content: center; 
+    gap: 40px; 
+    padding-bottom: 20px;
+    /* border-bottom: 1px solid rgba(255, 255, 255, 0.1);  */
+}
+
+.footer-logo-img {
+    height: auto;
+    max-height: 120px; 
+    width: auto;
+    transition: opacity 0.3s ease;
+}
+
+.footer-logo-img:hover {
+    opacity: 1; 
+}
+
+/* Mobile responsiveness */
+@media (max-width: 767px) {
+    .footer-partner-logos {
+        justify-content: center; 
+        gap: 20px;
+        flex-wrap: wrap;
+    }
+    .footer-logo-img {
+        max-height: 80px;
+    }
+}
+
 .single-footer-widget {
     position: relative;
     display: block;

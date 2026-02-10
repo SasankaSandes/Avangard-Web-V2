@@ -429,7 +429,7 @@
     position: relative;
     margin-top: 40px;
     display: block;
-    /* overflow: hidden; */
+    overflow: hidden; 
     background-color: var(--thm-bg);
 }
 
@@ -462,10 +462,14 @@
 }
 
 .about-style2__image .inner img.legend {
-    width: 150px;
+    width: 25%;
+    max-width: 150px;
+    height: auto;
     position: absolute;
     right: 30px;
     bottom: 70px;
+
+    z-index: 5;
 
 }
 
