@@ -220,7 +220,7 @@
 }
 
 .about-style2-area .sec-title {
-    margin-bottom: 60px;
+    margin-bottom: 30px;
 }
 
 .about-style2__image img {
@@ -249,9 +249,10 @@
 
 .executive-details-block {
     /* background-color: #f1f7f9;  */
-    padding: 40px;
+    padding: 60px;
     border-radius: 4px;
     height: 100%;
+    padding-bottom: 0px;
 }
 
 .executive-details-block h3 {
@@ -272,6 +273,7 @@
     line-height: 1.8em;
     color: #444;
     margin-bottom: 15px;
+    text-align: justify;
 }
 
 /* Responsive adjustments */
@@ -314,7 +316,7 @@
 
 .executive-details-block {
     margin-bottom: 0;
-    min-height: 350px; 
+    /* min-height: 350px;  */
     display: flex;
     flex-direction: column;
     justify-content: center;

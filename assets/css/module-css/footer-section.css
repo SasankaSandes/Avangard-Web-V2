@@ -377,6 +377,7 @@
     font-weight: 300;
     font-family: var(--thm-font);
     margin: 0;
+    text-align: justify;
 }
 
 .footer-bottom .bottom-inner .copyright p a {
@@ -388,4 +389,8 @@
 
 .footer-bottom .bottom-inner .copyright p a:hover {
     color: var(--thm-base);
+}
+
+.col-sm-12 p{
+    text-align: justify;
 }

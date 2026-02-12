@@ -272,6 +272,10 @@
     border: 0px solid #d9e3e4;
 }
 
+.single-blog-style1--in-style2 .text-holder .text p {
+    text-align: justify;
+}
+
 .single-blog-style1--in-style2:hover .text-holder {
     border: 0px solid transparent;
     box-shadow: none;
@@ -658,9 +662,10 @@
     position: relative;
     display: block;
     background: #ffffff;
-    padding: 120px 0 120px;
+    /* padding: 120px 0 120px; */
     z-index: 10;
 }
+
 
 .blog-details-content {
     position: relative;
