@@ -35,7 +35,7 @@
     position: relative;
     display: block;
     overflow: hidden;
-    padding-top: 120px;
+    padding-top: 40px;
     padding-bottom: 64px;
     z-index: 9;
 }
@@ -50,7 +50,7 @@
 }
 
 .footer-logo-img {
-    height: 120px;
+    height: 200px;
     width: auto;
     transition: opacity 0.3s ease;
 }
@@ -63,7 +63,7 @@
         flex-wrap: wrap;
     }
     .footer-logo-img {
-        height: 80px;
+        height: 100px;
     }
 }
 
