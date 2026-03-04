@@ -335,8 +335,8 @@
                             </div>
                             <div class="inner-content">
                                 <h3>Latest Unit Price</h3>
-                                <h4>NAV: 1.1945</h4>
-                                <p>Date: 31 Jan 2025</p>
+                                <h4>NAV: <span id="latest-nav">—</span></h4>
+                                <p>Date: <span id="latest-date">—</span></p>
                             </div>
                         </div>
                     </div>
@@ -381,40 +381,7 @@
                                                 <th>FYTD</th>
                                             </tr>
                                         </thead>
-                                        <tbody>
-                                            <tr>
-                                                <td class="text-start">2024/25</td>
-                                                <td></td>
-                                                <td></td>
-                                                <td></td>
-                                                <td></td>
-                                                <td></td>
-                                                <td></td>
-                                                <td>1.27%</td>
-                                                <td>-5.41%</td>
-                                                <td>3.76%</td>
-                                                <td>-1.61%</td>
-                                                <td>1.10%</td>
-                                                <td>-2.53%</td>
-                                                <td class="fw-bold">-3.63%</td>
-                                            </tr>
-                                            <tr>
-                                                <td class="text-start">2025/26</td>
-                                                <td>1.64%</td>
-                                                <td>4.62%</td>
-                                                <td>9.09%</td>
-                                                <td>4.31%</td>
-                                                <td>-3.16%</td>
-                                                <td>3.44%</td>
-                                                <td>2.27%</td>
-                                                <td></td>
-                                                <td></td>
-                                                <td></td>
-                                                <td></td>
-                                                <td></td>
-                                                <!-- FYTD 2025/26 -->
-                                                <td class="fw-bold">23.95%</td>
-                                            </tr>
+                                        <tbody id="performance-tbody">
                                         </tbody>
                                     </table>
                                 </div>
@@ -473,37 +440,7 @@
                                                 <th>Jun</th>
                                             </tr>
                                         </thead>
-                                        <tbody>
-                                            <tr>
-                                                <td class="text-start">2024/25</td>
-                                                <td></td>
-                                                <td></td>
-                                                <td></td>
-                                                <td></td>
-                                                <td></td>
-                                                <td></td>
-                                                <td>1.0127</td>
-                                                <td>0.9579</td>
-                                                <td>0.9939</td>
-                                                <td>0.9779</td>
-                                                <td>0.9887</td>
-                                                <td>0.9637</td>
-                                            </tr>
-                                            <tr>
-                                                <td class="text-start">2025/26</td>
-                                                <td>0.9795</td>
-                                                <td>1.0248</td>
-                                                <td>1.1179</td>
-                                                <td>1.1661</td>
-                                                <td>1.1292</td>
-                                                <td>1.1680</td>
-                                                <td>1.1945</td>
-                                                <td></td>
-                                                <td></td>
-                                                <td></td>
-                                                <td></td>
-                                                <td></td>
-                                            </tr>
+                                        <tbody id="unit-prices-tbody">
                                         </tbody>
                                     </table>
                                 </div>
@@ -742,89 +679,143 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
 
-    <!-- Chart script -->
+    <!-- Performance data renderer -->
     <script>
+        const MONTH_KEYS = ['jul', 'aug', 'sep', 'oct', 'nov', 'dec', 'jan', 'feb', 'mar', 'apr', 'may', 'jun'];
+        const MONTH_LABELS = { jul: 'Jul', aug: 'Aug', sep: 'Sep', oct: 'Oct', nov: 'Nov', dec: 'Dec', jan: 'Jan', feb: 'Feb', mar: 'Mar', apr: 'Apr', may: 'May', jun: 'Jun' };
+        const SECOND_HALF = ['jan', 'feb', 'mar', 'apr', 'may', 'jun'];
+
         function getFontSize() {
-            return window.innerWidth <= 480 ? 10 : 12; // 10 for mobile, 12 for others
+            return window.innerWidth <= 480 ? 10 : 12;
         }
 
-        const ctx = document.getElementById('myChart');
+        function formatPct(val) {
+            if (val === null || val === undefined) return '';
+            return `${val.toFixed(2)}%`;
+        }
 
-        // Labels and unit price values
-        const labels = [
-            'Jan 2025', 'Feb 2025', 'Mar 2025', 'Apr 2025', 'May 2025', 'Jun 2025',
-            'Jul 2025', 'Aug 2025', 'Sep 2025', 'Oct 2025', 'Nov 2025', 'Dec 2025', 'Jan 2026'
-        ];
+        function renderLatestUnitPrice(data) {
+            document.getElementById('latest-nav').textContent = data.latestUnitPrice.nav.toFixed(4);
+            document.getElementById('latest-date').textContent = data.latestUnitPrice.date;
+        }
 
-        const unitPrices = [1.0127, 0.9579, 0.9939, 0.9779, 0.9887, 0.9637, 0.9795, 1.0248, 1.1179, 1.1661, 1.1292, 1.1680, 1.1945];
+        function renderPerformanceTable(data) {
+            const tbody = document.getElementById('performance-tbody');
+            tbody.innerHTML = data.monthlyPerformance.map(row => {
+                const cells = MONTH_KEYS.map(key => {
+                    const val = row[key];
+                    return `<td>${val !== null && val !== undefined ? formatPct(val) : ''}</td>`;
+                }).join('');
+                const fytdCell = row.fytd !== null && row.fytd !== undefined
+                    ? `<td class="fw-bold">${formatPct(row.fytd)}</td>`
+                    : '<td></td>';
+                return `<tr><td class="text-start">${row.year}</td>${cells}${fytdCell}</tr>`;
+            }).join('');
+        }
 
-        // Monthly % values taken directly from your data table
-        const monthlyPct = [0, -5.41, 3.76, -1.61, 1.10, -2.53, 1.64, 4.62, 9.09, 4.31, -3.16, 3.44, 2.27];
+        function renderUnitPricesTable(data) {
+            const tbody = document.getElementById('unit-prices-tbody');
+            tbody.innerHTML = data.monthlyUnitPrices.map(row => {
+                const cells = MONTH_KEYS.map(key => {
+                    const val = row[key];
+                    return `<td>${val !== null && val !== undefined ? val.toFixed(4) : ''}</td>`;
+                }).join('');
+                return `<tr><td class="text-start">${row.year}</td>${cells}</tr>`;
+            }).join('');
+        }
 
-        new Chart(ctx, {
-            type: 'line',
-            data: {
-                labels,
-                datasets: [{
-                    label: 'Unit Price',
-                    data: unitPrices,
-                    borderWidth: 2,
-                    fill: false,
-                    pointRadius: 3
-                }]
-            },
-            options: {
-                responsive: true,
-                maintainAspectRatio: false,
-                scales: {
-                    x: {
-                        ticks: {
-                            color: '#daecff', // change X axis text color (black here)
-                            font: () => ({ size: getFontSize() }),
-                        },
-                        grid: {
-                            color: '#183655' // X axis grid line color
-                        }
-                    },
-                    y: {
-                        beginAtZero: false,
-                        ticks: {
-                            color: '#daecff',
-                            font: () => ({ size: getFontSize() }),
-                            // Add $ in front of y-axis ticks
-                            callback: (value) => `$${value.toFixed(2)}M`
-                        },
-                        grid: {
-                            color: '#183655' // X axis grid line color
-                        }
+        function buildChartData(data) {
+            const labels = [], unitPrices = [], monthlyPct = [];
+            let isFirst = true;
+
+            for (const priceRow of data.monthlyUnitPrices) {
+                const startYear = parseInt(priceRow.year.split('/')[0]);
+                const perfRow = data.monthlyPerformance.find(r => r.year === priceRow.year);
+
+                for (const key of MONTH_KEYS) {
+                    const price = priceRow[key];
+                    if (price !== null && price !== undefined) {
+                        const calYear = SECOND_HALF.includes(key) ? startYear + 1 : startYear;
+                        labels.push(`${MONTH_LABELS[key]} ${calYear}`);
+                        unitPrices.push(price);
+                        const pct = perfRow ? perfRow[key] : null;
+                        monthlyPct.push(isFirst ? 0 : (pct !== null && pct !== undefined ? pct : 0));
+                        isFirst = false;
                     }
+                }
+            }
+            return { labels, unitPrices, monthlyPct };
+        }
+
+        function renderChart(chartData) {
+            const { labels, unitPrices, monthlyPct } = chartData;
+            const ctx = document.getElementById('myChart');
+
+            new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels,
+                    datasets: [{
+                        label: 'Unit Price',
+                        data: unitPrices,
+                        borderWidth: 2,
+                        fill: false,
+                        pointRadius: 3
+                    }]
                 },
-                plugins: {
-                    legend: {
-                        display: false
-                    },
-                    tooltip: {
-                        displayColors: false,
-                        callbacks: {
-                            // First line shows $value
-                            label: (ctx) => {
-                                const i = ctx.dataIndex;
-                                const up = unitPrices[i];
-                                return `Value: $${(up * 1000000).toLocaleString()}`;
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: {
+                        x: {
+                            ticks: {
+                                color: '#daecff',
+                                font: () => ({ size: getFontSize() })
                             },
-                            // Second line shows monthly % from the array
-                            afterLabel: (ctx) => {
-                                const i = ctx.dataIndex;
-                                const pct = monthlyPct[i];
-                                if (pct === 0 && i === 0) return 'Gain: —';
-                                const sign = pct >= 0 ? '+' : '';
-                                return `Gain: ${sign}${pct.toFixed(2)}%`;
+                            grid: { color: '#183655' }
+                        },
+                        y: {
+                            beginAtZero: false,
+                            ticks: {
+                                color: '#daecff',
+                                font: () => ({ size: getFontSize() }),
+                                callback: (value) => `$${value.toFixed(2)}M`
+                            },
+                            grid: { color: '#183655' }
+                        }
+                    },
+                    plugins: {
+                        legend: { display: false },
+                        tooltip: {
+                            displayColors: false,
+                            callbacks: {
+                                label: (ctx) => {
+                                    const up = unitPrices[ctx.dataIndex];
+                                    return `Value: $${(up * 1000000).toLocaleString()}`;
+                                },
+                                afterLabel: (ctx) => {
+                                    const i = ctx.dataIndex;
+                                    const pct = monthlyPct[i];
+                                    if (pct === 0 && i === 0) return 'Gain: —';
+                                    const sign = pct >= 0 ? '+' : '';
+                                    return `Gain: ${sign}${pct.toFixed(2)}%`;
+                                }
                             }
                         }
                     }
                 }
-            }
-        });
+            });
+        }
+
+        fetch('assets/data/performance.json')
+            .then(res => res.json())
+            .then(data => {
+                renderLatestUnitPrice(data);
+                renderPerformanceTable(data);
+                renderUnitPricesTable(data);
+                renderChart(buildChartData(data));
+            })
+            .catch(err => console.error('Failed to load performance data:', err));
     </script>
 
 
